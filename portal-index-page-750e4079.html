@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>关于 ng28 · 信息聚合与索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      background: #f5fafc;
+      color: #1d2b36;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrap {
+      max-width: 1100px;
+      width: 100%;
+      padding: 0 20px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 50px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #2a9d8f, #48cae4);
+      margin: 20px auto 0;
+      border-radius: 4px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b3b42;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #2d5a66;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .hero .highlight {
+      color: #2a9d8f;
+      font-weight: 500;
+    }
+
+    /* 优势区 - 网格卡片 */
+    .grid-section {
+      padding: 40px 0 30px;
+    }
+
+    .grid-section h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #12424b;
+      margin-bottom: 28px;
+      border-left: 5px solid #2a9d8f;
+      padding-left: 18px;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 4px 14px rgba(42, 157, 143, 0.06);
+      border: 1px solid #d9eef2;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 22px rgba(42, 157, 143, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: #0b3b42;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card h3 span {
+      background: #e0f2f0;
+      border-radius: 30px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      color: #1f6d69;
+      font-weight: 500;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      color: #2f5a62;
+    }
+
+    /* 说明区 */
+    .detail-section {
+      padding: 40px 0 30px;
+    }
+
+    .detail-section h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #12424b;
+      margin-bottom: 22px;
+      border-left: 5px solid #48cae4;
+      padding-left: 18px;
+    }
+
+    .detail-block {
+      background: white;
+      border-radius: 24px;
+      padding: 28px 30px;
+      box-shadow: 0 4px 16px rgba(72, 202, 228, 0.06);
+      border: 1px solid #cde7ed;
+      margin-bottom: 20px;
+    }
+
+    .detail-block p {
+      margin-bottom: 14px;
+    }
+
+    .detail-block .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 16px 0 8px;
+    }
+
+    .tag-list li {
+      list-style: none;
+      background: #e8f6f3;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      color: #1b5e5a;
+    }
+
+    /* FAQ 摘要 */
+    .faq-preview {
+      padding: 38px 0 30px;
+    }
+
+    .faq-preview h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #12424b;
+      margin-bottom: 24px;
+      border-left: 5px solid #2a9d8f;
+      padding-left: 18px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 22px;
+      margin-bottom: 14px;
+      border: 1px solid #d7e9ee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .faq-item strong {
+      display: block;
+      color: #083138;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .faq-item p {
+      color: #2b555f;
+      font-size: 0.95rem;
+    }
+
+    .faq-item .more-hint {
+      color: #2a9d8f;
+      font-size: 0.9rem;
+      margin-top: 6px;
+      display: inline-block;
+      border-bottom: 1px dashed #8dcdc2;
+    }
+
+    /* 底部链接区 */
+    .foot-links {
+      padding: 32px 0 50px;
+      border-top: 1px solid #cde0e5;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .foot-links p {
+      font-size: 0.94rem;
+      color: #2b5f69;
+      margin-bottom: 12px;
+    }
+
+    .foot-links a {
+      color: #1c7a70;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b0d9d1;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .foot-links a:hover {
+      color: #0f5249;
+      border-bottom-color: #2a9d8f;
+    }
+
+    .foot-links .sentence-link {
+      display: block;
+      margin: 18px 0 8px;
+      font-size: 1.02rem;
+    }
+
+    .foot-note {
+      color: #517680;
+      font-size: 0.86rem;
+      margin-top: 14px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      .grid-cards { gap: 14px; }
+      .card { padding: 18px 14px; }
+      .detail-block { padding: 20px 18px; }
+      .faq-item { padding: 14px 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-wrap { padding: 0 14px; }
+      .hero { padding-top: 40px; }
+      .grid-section h2, .detail-section h2, .faq-preview h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>整合 · 索引 · 结构</h1>
+      <p>围绕 <span class="highlight">ng28</span> 聚合的信息节点，提供清晰的分类索引与内容引导。适用于需要快速了解主题脉络、参考关联资源的场景。</p>
+    </section>
+
+    <!-- 优势区 网格卡片 -->
+    <section class="grid-section">
+      <h2>特点概括</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <h3>▸ 分类索引 <span>01</span></h3>
+          <p>按逻辑模块组织信息，减少重复查找，关联内容一目了然。</p>
+        </div>
+        <div class="card">
+          <h3>▸ 轻量版式 <span>02</span></h3>
+          <p>卡片与网格结合，适配不同屏幕，阅读和浏览体验一致。</p>
+        </div>
+        <div class="card">
+          <h3>▸ 场景导向 <span>03</span></h3>
+          <p>从实际使用角度梳理内容，方便快速定位到相关说明。</p>
+        </div>
+        <div class="card">
+          <h3>▸ 持续更新 <span>04</span></h3>
+          <p>信息随主题变化逐步补充，保持结构可扩展。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区 -->
+    <section class="detail-section">
+      <h2>内容说明</h2>
+      <div class="detail-block">
+        <p>本页面围绕 <strong>ng28</strong> 这一关键词，从信息聚合与索引的角度展开。内容涵盖基础描述、常见分类、以及使用中可能遇到的要点提示。所有信息均基于可公开获取的资料进行整理，力求客观、平实。</p>
+        <p>以下为当前整理的部分主题分类：</p>
+        <ul class="tag-list">
+          <li>入门了解</li>
+          <li>功能模块</li>
+          <li>常见表述</li>
+          <li>参考资源</li>
+          <li>注意事项</li>
+        </ul>
+        <p style="margin-top: 6px;">每个分类下会持续补充关联条目。如果你在浏览过程中发现其他值得收录的方向，也可以作为后续更新的参考。</p>
+      </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-preview">
+      <h2>常见疑问摘要</h2>
+
+      <div class="faq-item">
+        <strong>这个页面主要提供什么？</strong>
+        <p>一个围绕 <strong>ng28</strong> 的信息索引页，帮助快速浏览主题结构，而非某单一产品的详细文档。内容偏向整合与导览。</p>
+        <span class="more-hint">更多 → 页面下方链接</span>
+      </div>
+
+      <div class="faq-item">
+        <strong>信息会定期调整吗？</strong>
+        <p>会根据主题变化或新资料的补充，对分类和内容做适当调整。目前保持每季度重新梳理一次结构。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>有推荐的浏览方式吗？</strong>
+        <p>建议先阅读说明区的分类概览，再根据具体疑问查看对应板块。如果对某个分类有深入的兴趣，可以直接前往相关资源页面。</p>
+      </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="foot-links">
+      <p>更多相关内容，可参考以下链接：</p>
+      <span class="sentence-link">
+        关于「索引信息聚合」的原始入口，可通过 <a href="https://portal-index-ng28.com">ng28</a> 直接访问。
+      </span>
+      <p style="margin-top: 12px;">本页面仅作信息展示与引导，不构成任何形式的推荐或保证。</p>
+      <div class="foot-note">
+        portal-index-ng28.com · 聚合索引说明页
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
