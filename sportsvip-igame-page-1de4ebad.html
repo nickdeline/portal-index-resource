@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f0e8;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      color: #2e2a24;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fcf9f4;
+      padding: 2.8rem 2.2rem;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #e3dcd0;
+      padding-bottom: 2.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #3c352b;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #8c8273;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-top: 1px dashed #d7cec0;
+      display: inline-block;
+      padding-top: 0.8rem;
+    }
+
+    .background-note {
+      background: #ede7dd;
+      padding: 1.6rem 2rem;
+      border-radius: 20px;
+      margin-bottom: 2.8rem;
+      font-size: 0.98rem;
+      color: #3f3a32;
+      border-left: 6px solid #b7a58b;
+    }
+
+    .background-note::before {
+      content: "📖 背景";
+      display: block;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #6b5d4b;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro-section {
+      margin-bottom: 2.8rem;
+    }
+
+    .intro-section h2 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #4d4436;
+      border-left: 4px solid #cbb99e;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .intro-section p {
+      margin-bottom: 1.2rem;
+      text-indent: 2em;
+    }
+
+    .pull-quote {
+      background: #f3efe7;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0 2.5rem 0;
+      border-radius: 24px;
+      font-style: italic;
+      color: #5c5347;
+      font-size: 1.05rem;
+      border: 1px solid #e1d9cd;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+      position: relative;
+    }
+
+    .pull-quote::before {
+      content: "“";
+      font-size: 3.2rem;
+      line-height: 1;
+      color: #b7a58b;
+      position: absolute;
+      left: 1rem;
+      top: 0.4rem;
+      opacity: 0.5;
+    }
+
+    .info-box {
+      background: #eae3d9;
+      padding: 1.8rem 2rem;
+      border-radius: 24px;
+      margin: 2.5rem 0;
+      border: 1px solid #d6ccbd;
+    }
+
+    .info-box h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #5a4f3f;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-box li {
+      padding: 0.4rem 0 0.4rem 1.6rem;
+      position: relative;
+      color: #3f3a32;
+    }
+
+    .info-box li::before {
+      content: "·";
+      color: #9b8b77;
+      font-weight: bold;
+      position: absolute;
+      left: 0.4rem;
+    }
+
+    .faq-mini {
+      margin: 2.8rem 0 2rem 0;
+    }
+
+    .faq-mini details {
+      background: #f6f2eb;
+      padding: 0.8rem 1.4rem;
+      border-radius: 40px;
+      margin-bottom: 0.8rem;
+      border: 1px solid #ddd6ca;
+      transition: 0.2s;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #4d4436;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      outline: none;
+    }
+
+    .faq-mini details p {
+      margin-top: 0.8rem;
+      padding-left: 0.4rem;
+      color: #5b5245;
+      font-size: 0.97rem;
+    }
+
+    .footer-hint {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #ddd6ca;
+      text-align: center;
+      font-size: 1rem;
+      color: #6b5f4f;
+    }
+
+    .footer-hint a {
+      color: #5a4f3f;
+      text-decoration: underline;
+      text-decoration-color: #cbb99e;
+      text-underline-offset: 4px;
+      font-weight: 450;
+      transition: 0.2s;
+    }
+
+    .footer-hint a:hover {
+      color: #2f281e;
+      text-decoration-color: #9b8b77;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 2.2rem;
+      font-size: 0.85rem;
+      color: #aca18f;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page {
+        padding: 1.8rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .sub {
+        font-size: 0.8rem;
+      }
+      .background-note {
+        padding: 1.2rem 1.2rem;
+      }
+      .pull-quote {
+        padding: 1.2rem 1.2rem 1.2rem 1.8rem;
+      }
+      .pull-quote::before {
+        left: 0.4rem;
+        font-size: 2.4rem;
+      }
+      .info-box {
+        padding: 1.2rem;
+      }
+      .intro-section h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <h1>爱游戏</h1>
+      <div class="sub">一份关于平台初衷的专题笔记</div>
+    </div>
+
+    <div class="background-note">
+      当你在浏览器地址栏输入一个陌生的网址，最想先确认的是：这个网站是做什么的？它值得我花时间吗？<br>
+      正因如此，这篇页面不讲空话，只尝试用平实的语言，帮你快速了解 <strong>爱游戏</strong> 所关心的领域与内容方向。
+    </div>
+
+    <div class="intro-section">
+      <h2>· 一 · 不止于名称</h2>
+      <p>
+        “爱游戏”三个字听起来亲切，背后是对线上娱乐场景的持续观察。它并非一个包罗万象的门户，而更侧重于提供与体育、竞技、休闲相关的信息聚合与互动入口。如果你平时关注运动赛事、电子竞技或策略类游戏，这里或许能成为你随手翻阅的角落。
+      </p>
+      <p>
+        从界面到内容组织，设计者希望降低认知负担——没有复杂的层级，没有闪烁的弹窗。整个网站更像一本安静的杂志，把与“玩”相关的资讯、数据、社区动态整理成清晰可读的章节。
+      </p>
+    </div>
+
+    <div class="pull-quote">
+      识别一个网站用途的最好方式，就是看它如何呈现自己关心的事物。<br>
+      爱游戏选择用文字和结构说话，而不是用横幅和弹窗呐喊。
+    </div>
+
+    <div class="intro-section">
+      <h2>· 二 · 三个值得留意的板块</h2>
+      <p>
+        浏览 <a href="https://sportsvip-igame.com">爱游戏</a> 时，你可能会注意到几个常被提及的区域：首先是赛事动态，这里收录了近期热门比赛的时间线与短评，不追求秒级更新，但求信息可溯源；其次是玩法解析，针对不同项目提供基础规则、常见策略与版本变化；最后是社区声音，摘录了一些参与者的讨论与反馈，以呈现更多元的视角。
+      </p>
+      <p>
+        这三个板块并不追求大而全，更像是一个兴趣小组的公告栏——你可以快速扫一眼，找到自己关心的部分，然后离开或深入阅读。
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>📌 使用前可以留意的几点</h3>
+      <ul>
+        <li>内容以中文为主，面向中文用户群体，语言风格平实</li>
+        <li>页面布局偏向文字阅读，减少不必要的视觉干扰</li>
+        <li>部分链接指向站内专题，方便连续浏览</li>
+        <li>没有强制注册或下载要求，内容基本开放</li>
+        <li>网站仍在根据用户反馈逐步调整结构</li>
+      </ul>
+    </div>
+
+    <div class="intro-section">
+      <h2>· 三 · 适合怎样的浏览习惯</h2>
+      <p>
+        如果你习惯在休息时打开一个网站，随手翻看几段文章或数据，而不想被算法推送牵着走——<strong>爱游戏</strong> 的风格可能会让你感到放松。它不试图占据你所有注意力，而是提供一种“可随时暂停”的阅读体验。
+      </p>
+      <p>
+        当然，每个人对信息的需求不同。如果你偏好快节奏、强社交的体验，这里或许显得安静了些。但若你只是想找一个清晰的起点，慢慢了解某个领域，那么不妨从 <a href="https://sportsvip-igame.com">爱游戏</a> 开始，看看它如何组织自己眼中的世界。
+      </p>
+    </div>
+
+    <div class="faq-mini">
+      <details>
+        <summary>❓ 这个网站需要注册吗？</summary>
+        <p>目前访问站内绝大多数内容不需要注册或登录。部分互动功能可能后续开放，但浏览不受影响。</p>
+      </details>
+      <details>
+        <summary>❓ 内容更新频率如何？</summary>
+        <p>主要围绕重要赛事、版本更新或社区讨论进行更新，没有固定每日发布量，更注重内容质量而非数量。</p>
+      </details>
+      <details>
+        <summary>❓ 移动端浏览体验如何？</summary>
+        <p>页面已做基本的响应式适配，在手机和平板上可以正常阅读文字与查看图表，推荐横屏查看数据类内容。</p>
+      </details>
+    </div>
+
+    <div class="footer-hint">
+      <p>如果你想直接了解网站的全貌，可以前往 <a href="https://sportsvip-igame.com">爱游戏</a> 自行翻阅。这里不做过度介绍，因为最好的识别方式永远是亲自看一眼。</p>
+    </div>
+
+    <div class="signature">
+      杂志专题 · 2025
+    </div>
+  </div>
+</body>
+</html>
