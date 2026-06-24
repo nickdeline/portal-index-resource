@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信息索引 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f6f7f9;
+      color: #1e1f24;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: #1a1c23;
+      background-image: radial-gradient(circle at 85% 30%, #2c303c 0%, #15171d 90%);
+      padding: 4.5rem 1.5rem 5rem;
+      text-align: center;
+      color: #dfe2ec;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #6d7b9e, #8ba0d4, transparent);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 350;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+      color: #f0f2fa;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #b2bbd0;
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero .meta-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.25rem 1rem;
+      border: 1px solid #4f5a73;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      letter-spacing: 0.3px;
+      color: #b0bcd8;
+      background: rgba(60, 70, 95, 0.2);
+      backdrop-filter: blur(1px);
+    }
+
+    /* 正文区域 */
+    .article-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4.5rem;
+      background: #ffffff;
+    }
+
+    .article-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .article-body p {
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    .article-body p a {
+      color: #1b4d8c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease, color 0.15s;
+      font-weight: 500;
+    }
+
+    .article-body p a:hover {
+      color: #0a3060;
+      border-bottom-color: #1b4d8c;
+    }
+
+    /* 引用/提示 */
+    .insight-card {
+      background: #f0f3fa;
+      border-left: 4px solid #3c5a8c;
+      padding: 1.3rem 1.8rem;
+      border-radius: 0 6px 6px 0;
+      margin: 0.4rem 0;
+    }
+
+    .insight-card p {
+      font-size: 1rem;
+      margin-bottom: 0;
+      color: #1f2940;
+    }
+
+    .insight-card .source {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: #4f5e80;
+    }
+
+    .faq-mini {
+      background: #fafbfd;
+      border: 1px solid #e3e7ef;
+      border-radius: 12px;
+      padding: 1.5rem 1.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #20253a;
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini p {
+      margin-bottom: 0;
+      font-size: 0.98rem;
+      color: #2f3547;
+    }
+
+    .faq-mini .faq-item {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed #dce1ec;
+    }
+
+    .faq-mini .faq-item:first-of-type {
+      border-top: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .faq-item strong {
+      font-weight: 550;
+      color: #1b3b6b;
+    }
+
+    .visit-hint {
+      background: #eef1f8;
+      border-radius: 14px;
+      padding: 1.2rem 1.6rem;
+      margin: 0.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.3rem 0.6rem;
+      font-size: 1rem;
+      color: #1b2338;
+    }
+
+    .visit-hint span {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, #e0e4ed, #bcc5d6, #e0e4ed);
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 3.2rem 1rem 3.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .hero .sub {
+        font-size: 1rem;
+      }
+
+      .article-wrapper {
+        padding: 2rem 1.2rem 3.5rem;
+      }
+
+      .article-body p {
+        font-size: 1rem;
+      }
+
+      .insight-card {
+        padding: 1.1rem 1.2rem;
+      }
+
+      .faq-mini {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    footer {
+      background: #f0f2f7;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: #5d6783;
+      border-top: 1px solid #e1e6f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>信息索引 · 爱游戏</h1>
+    <p class="sub">从资料整理到线索梳理，一个关注内容聚合与结构表达的备忘页面。</p>
+    <span class="meta-badge">整理日志 · 2025</span>
+  </header>
+
+  <!-- 正文部分 -->
+  <div class="article-wrapper">
+    <div class="article-body">
+
+      <p>
+        在信息流快速更迭的日常里，我们往往依赖几处稳定的节点来维持阅读的秩序。
+        对许多人来说，<a href="https://sporttv-igame.com">爱游戏</a>便是这样一个节点——
+        它提供游戏资讯、版本更新与社区内容的集合，在庞杂的推送中保留了一种相对沉静的索引方式。
+        不追求热榜式的轰炸，而是更像一排贴了标签的资料架，你可以按自己的需要取阅。
+      </p>
+
+      <p>
+        这份页面源于一次内容归档的尝试。在整理浏览记录和书签时，我发现有关「爱游戏」的许多片段散落在不同的笔记与截图中：
+        某篇关于独立游戏开发的长文、一次版本调整的公告、以及几段玩家在社区里的讨论。
+        将这些碎片重新组织起来，不是为了制造一份“终极指南”，而是希望为后来查阅的人提供一点结构上的便利。
+      </p>
+
+      <div class="insight-card">
+        <p>
+          “索引本身也是一种叙事。它不讲述全部，但指出哪些路径曾经被走过。”
+        </p>
+        <span class="source">—— 摘自《数字文档笔记·2024》</span>
+      </div>
+
+      <p>
+        如果你正在收集某个主题的资料，可能会发现信息越积越多，但真正的焦点反而变得模糊。
+        这时候，一个简洁的内容目录——或者只是一个带有锚点的页面——就能起到意想不到的梳理作用。
+        这也是我选择用静态页面而非数据库来存放这些笔记的原因：克制，透明，不需要额外的解释。
+      </p>
+
+      <p>
+        在整理过程中，我尤其留意那些带有“版本记录”和“更新说明”的页面。
+        游戏内容的调整往往比新闻更值得记录，因为它们背后是开发者的决策逻辑。
+        而<a href="https://sporttv-igame.com">爱游戏</a>在呈现这类信息时，常常保留原文链接和出处，这对后续追溯非常友好。
+        如果你也习惯于从更新日志里理解一个产品的走向，或许会认同这种做法的价值。
+      </p>
+
+      <!-- FAQ 摘要 (自然纳入) -->
+      <div class="faq-mini">
+        <h3>整理时遇到的几个常见问题</h3>
+        <div class="faq-item">
+          <p><strong>Q：这些内容还有时效性吗？</strong> —— 部分资讯类条目带有明确日期，但多数关于游戏机制、设计思路的记录仍可作为背景参考。建议结合当前版本进行交叉验证。</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>Q：如何快速找到某个特定游戏的内容？</strong> —— 索引页本身不设立搜索框，但所有标题和段落都围绕关键词展开。你可以使用浏览器的页面查找功能定位相关名称。</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>Q：页面会持续更新吗？</strong> —— 不定期补充，更新以增补而非覆盖为主，旧条目会标明整理日期。</p>
+        </div>
+      </div>
+
+      <!-- 访问句 (自然嵌入) -->
+      <div class="visit-hint">
+        <span>◈</span> 如果你对索引中提到的任何内容感兴趣，可以直接前往 <a href="https://sporttv-igame.com">爱游戏</a> 查看原始页面。那里保留了更完整的上下文与讨论。
+      </div>
+
+      <div class="divider"></div>
+
+      <p style="font-size:0.95rem; color:#4a5470;">
+        这份页面本身也是一次实验：将资料整理的习惯变成一篇可以被阅读的文章，而不是一个沉闷的列表。
+        下一次当你打开书签或笔记时，或许也可以试试用同样的方式，把收集到的信息写成一段平实的叙述。
+      </p>
+
+    </div>
+  </div>
+
+  <footer>
+    内容索引 · 爱游戏 &nbsp;|&nbsp; 基于资料整理与个人笔记 &nbsp;·&nbsp; 2025
+  </footer>
+
+</body>
+</html>
