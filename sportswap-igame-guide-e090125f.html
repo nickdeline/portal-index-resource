@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · SportSwap 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            background-color: #f7f8fa;
+            color: #1e1f2b;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0f111a 0%, #1b1e2c 100%);
+            color: #eaeef5;
+            padding: 4.8rem 2rem 5.2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid #e28b4a;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(226, 139, 74, 0.25) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            color: #e28b4a;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 760px;
+            margin: 0 auto;
+            opacity: 0.8;
+            font-weight: 320;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.2rem 1.8rem 3.5rem;
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 2.8rem 2.6rem;
+            margin-bottom: 2.6rem;
+        }
+
+        .section-card h2 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            border-left: 6px solid #e28b4a;
+            padding-left: 1rem;
+            color: #1e1f2b;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .advantage-item {
+            background: #f3f4f9;
+            border-radius: 18px;
+            padding: 1.5rem 1.4rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .advantage-item:hover {
+            background: #ecedf3;
+            transform: translateY(-4px);
+        }
+
+        .advantage-item .title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #1e1f2b;
+            display: inline-block;
+            border-bottom: 2px solid #e28b4a;
+            padding-bottom: 2px;
+        }
+
+        .advantage-item p {
+            color: #3b3d4a;
+            font-size: 0.95rem;
+            margin-top: 0.6rem;
+        }
+
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            margin: 1rem 0 0.8rem;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #e5e6ed;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1e1f2b;
+            margin-bottom: 0.2rem;
+            font-size: 1.08rem;
+        }
+
+        .faq-item p {
+            color: #464857;
+            font-size: 0.96rem;
+        }
+
+        .site-link-wrap {
+            margin: 2.2rem 0 1.2rem;
+            font-size: 1.1rem;
+            background: #ffffff;
+            border-radius: 60px;
+            padding: 1rem 2rem;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .site-link-wrap a {
+            color: #c06d2f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #c06d2f;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .site-link-wrap a:hover {
+            color: #974f1f;
+            border-bottom: 1px solid #974f1f;
+        }
+
+        .bottom-links {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #d6d8e2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 3.5rem;
+            font-size: 0.95rem;
+        }
+
+        .bottom-links a {
+            color: #3f3f55;
+            text-decoration: none;
+            border-bottom: 1px dotted #b3b7c9;
+            transition: border 0.2s;
+        }
+
+        .bottom-links a:hover {
+            border-bottom: 1px solid #e28b4a;
+            color: #20212c;
+        }
+
+        .note-tip {
+            background: #f1f2f7;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #3e4050;
+            border-left: 4px solid #d7a067;
+            margin: 1.6rem 0 0.4rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin: 2.8rem 0 0.8rem;
+            font-size: 0.85rem;
+            color: #7b7d8a;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-card {
+                padding: 2rem 1.4rem;
+            }
+
+            .section-card h2 {
+                font-size: 1.6rem;
+                padding-left: 0.8rem;
+            }
+
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .site-link-wrap {
+                padding: 0.8rem 1.4rem;
+                font-size: 1rem;
+            }
+
+            .bottom-links {
+                gap: 1rem 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>爱游戏 · <span>SportSwap</span></h1>
+        <p>一个以玩家体验为线索的站点，聚合活跃社区与信息，从实用角度出发，持续打磨内容质量。</p>
+    </div>
+
+    <div class="container">
+        <!-- 介绍与可信说明 -->
+        <div class="section-card">
+            <h2>关于这个站点</h2>
+            <p>如果你对游戏资讯、社区动态以及实用工具有兴趣，那你很可能听过或偶然发现过 <strong>sportswap-igame.com</strong>。这不是一个追求流量噱头的网站，而是围绕「<a href="https://sportswap-igame.com" style="color:#c06d2f; text-decoration: underline; font-weight:500;">爱游戏</a>」这个关键词，逐渐沉淀下来的内容集合。它更像一个安静的聚合角：有玩家自己整理的游戏笔记，有版本更新的解读，还有一些不那么热门但值得尝试的作品推荐。</p>
+            <p style="margin-top:0.8rem;">从内容来源上说，站内的信息参考了社区讨论以及公开资料，并加入编写者自身的理解。目的是让浏览者在查找某个游戏或功能点时，不必在碎片化信息里反复横跳。站点没有花哨的弹窗或诱导分享，只希望保持一种干净、可信赖的阅读感。</p>
+        </div>
+
+        <!-- 优势区：三个差异化的卡片 -->
+        <div class="section-card">
+            <h2>为什么值得留意</h2>
+            <div class="advantage-grid">
+                <div class="advantage-item">
+                    <div class="title">去噪 · 实在</div>
+                    <p>每篇文章都经过手动筛选与重写，不堆砌关键词，内容结构直观，不浪费你的时间。</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="title">长期 · 慢更</div>
+                    <p>不追热点，保持稳定更新节奏。过去两年里，大部分游戏专题都持续回看与修正，信息寿命更长。</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="title">无焦虑式运营</div>
+                    <p>没有倒计时、虚假紧迫感或者“限时福利”那种话术。所有内容都直接可见，不藏不掖。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明区：使用场景与可信补充 -->
+        <div class="section-card">
+            <h2>适用场景与提示</h2>
+            <p>无论你是刚开始接触某个游戏系列，还是想了解一下近期活动但官方文档太分散，这个站点或许能帮上一点忙。内容覆盖了常见游戏的机制说明、隐藏小技巧、版本变化对比，偶尔也会写一点偏冷门的独立作品。特别适合那种“想快速了解，但不想看十几分钟视频”的碎片时间。</p>
+            <p style="margin-top:1rem;">需要说明的是：<strong>所有内容仅供参考</strong>，游戏的实际数据、活动时间、服务器状态等请以官方为准。站点编辑者会尽量标注引用来源或测试版本，但无法保证完美无误。如果你发现某些信息过时了，欢迎通过站内反馈通道提出（底部有链接）。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="section-card">
+            <h2>常见疑惑 · 简短摘要</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <strong>这个网站是谁维护的？</strong>
+                    <p>由几位业余游戏爱好者共同打理，没有公司背景，也不属于任何游戏厂商。因此内容立场相对独立，更多是分享与记录。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>信息更新频率多久一次？</strong>
+                    <p>没有固定时间表。通常在有版本大更新、新游戏上线或发现错误时会及时修订，日常大约每两周有一些新增内容。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>有付费内容或隐藏专区吗？</strong>
+                    <p>没有。所有页面都是公开、免费的，也不存在“会员专享”的板块。未来也没有加入付费墙的计划。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 自然链接嵌入句子 -->
+        <div style="text-align: center; margin: 1rem 0 2rem;">
+            <div class="site-link-wrap">
+                🕹️ 如果你想直接翻阅游戏相关的内容，可以前往 <a href="https://sportswap-igame.com">爱游戏</a> 的主页面。
+            </div>
+        </div>
+
+        <div class="note-tip">
+            💡 一个小建议：第一次访问时，不妨从“游戏目录”或“最近更新”栏目开始，浏览起来会更有头绪。页面设计没有复杂导航，主要依靠分类标签和搜索。
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="bottom-links">
+            <a href="#">关于本站</a>
+            <a href="#">反馈与建议</a>
+            <a href="#">内容归档</a>
+            <a href="#">隐私说明</a>
+        </div>
+        <div class="footer-note">
+            © 爱游戏 · 开放 · 非官方 ｜ 信息仅供参考，请自行核实
+        </div>
+    </div>
+</body>
+</html>
