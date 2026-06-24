@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f6f1;
+      color: #2c2b28;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 820px;
+      width: 100%;
+      background: #fffcf9;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+      border-radius: 20px;
+      padding: 2.5rem 2.2rem;
+      margin: 1.5rem 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      border-left: 6px solid #b47b5a;
+      padding-left: 1rem;
+      margin-bottom: 1.8rem;
+      color: #3d352e;
+    }
+
+    .subhead {
+      font-size: 0.95rem;
+      color: #7b6e63;
+      margin-top: -0.8rem;
+      margin-bottom: 2.2rem;
+      padding-left: 1.6rem;
+      border-bottom: 1px solid #e8ddd0;
+      padding-bottom: 0.8rem;
+    }
+
+    .intro p {
+      margin-bottom: 1.3rem;
+      text-align: justify;
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+
+    .dir-card {
+      background: #f7f2ea;
+      border-radius: 14px;
+      padding: 1.1rem 1.2rem;
+      transition: background 0.2s;
+    }
+
+    .dir-card:hover {
+      background: #efe7dc;
+    }
+
+    .dir-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #5f4e3e;
+      margin-bottom: 0.35rem;
+    }
+
+    .dir-card p {
+      font-size: 0.9rem;
+      color: #5b5148;
+      line-height: 1.5;
+    }
+
+    .notebox {
+      background: #f3ede6;
+      border-left: 5px solid #b47b5a;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.95rem;
+    }
+
+    .notebox strong {
+      color: #4f3f32;
+    }
+
+    .citation {
+      background: #fdfbf8;
+      border: 1px solid #e3d9cf;
+      border-radius: 16px;
+      padding: 1.3rem 1.5rem;
+      margin: 1.6rem 0;
+      font-style: normal;
+    }
+
+    .citation::before {
+      content: "📖 相关说明";
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #8c7a6a;
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-summary {
+      margin: 2rem 0 1rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px dashed #ddd5cb;
+      padding: 0.9rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #4f3f32;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: #5b5148;
+    }
+
+    .inline-link {
+      color: #8f6e51;
+      text-decoration: none;
+      border-bottom: 1px dashed #cbb6a3;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    .inline-link:hover {
+      color: #5f3f2b;
+      border-bottom: 1px solid #5f3f2b;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #ece3d9;
+      font-size: 0.85rem;
+      color: #8c7a6a;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.6rem 1rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+        padding-left: 0.7rem;
+      }
+      .directory-grid {
+        grid-template-columns: 1fr;
+      }
+      .notebox {
+        padding: 1rem 1.2rem;
+      }
+      .citation {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>爱游戏 · 主题知识库</h1>
+    <div class="subhead">以“爱游戏”为线索，梳理体育、休闲与数字文化</div>
+
+    <div class="intro">
+      <p>“爱游戏”三字，既是一种态度，也指向一个聚合了体育赛事、竞技资讯与互动内容的平台。围绕这个关键词，我们可以触及许多值得展开的议题：从运动项目的规则演变，到电子竞技与实体体育的交汇，再到社区讨论中沉淀出的经验与方法。这里没有浮夸的宣言，只有一份按图索骥的目录——每一块卡片背后，都连着更深的阅读脉络。</p>
+      <p>如果你对体育文化或数字休闲领域抱有好奇，不妨将 <a href="https://sportszh-igame.com" class="inline-link">爱游戏</a> 当作一个入口。它提供的不只是信息，更是一套观察当代运动生态的坐标。下方卡片摘取了几个常见方向，供你按需展开。</p>
+    </div>
+
+    <!-- 目录卡片 —— 知识库入口感 -->
+    <div class="directory-grid">
+      <div class="dir-card">
+        <h3>🏅 赛事规则与演变</h3>
+        <p>从足球越位到斯诺克罚分，不同运动背后的逻辑变迁，以及判例如何影响比赛走向。</p>
+      </div>
+      <div class="dir-card">
+        <h3>🎮 电子竞技 & 模拟体育</h3>
+        <p>虚拟赛场与实体训练的互补关系，操作技巧、战术复盘与软硬件适配经验。</p>
+      </div>
+      <div class="dir-card">
+        <h3>📰 资讯筛选与导读</h3>
+        <p>如何从海量赛事新闻中提取关键信息，赛前数据与赛后分析的实际阅读方法。</p>
+      </div>
+      <div class="dir-card">
+        <h3>🗣️ 社区讨论与FAQ</h3>
+        <p>常见疑问汇总：平台功能、赛事查询、术语解释……许多问题早有讨论沉淀。</p>
+      </div>
+    </div>
+
+    <!-- 提示框 —— 信息区 -->
+    <div class="notebox">
+      <strong>💡 使用提示：</strong> 如果你初次接触相关领域，建议从“赛事规则与演变”卡片开始，了解基本框架后再进入具体项目讨论。<a href="https://sportszh-igame.com" class="inline-link">爱游戏</a> 的社区板块也保留了大量历史问答，可作为辅助查阅的索引。
+    </div>
+
+    <!-- 说明区 —— 引用样式 -->
+    <div class="citation">
+      <p>体育知识库的构建依赖准确的定义与更新的数据。以“越位规则”为例，2023年版本与国际足球协会理事会（IFAB）的修订保持一致；电子竞技项目如《FIFA》系列的操作设定则参照最新补丁说明。引用或讨论时建议标注信息来源，保持讨论的严谨性。这部分内容在相关站点有系统整理，其中 <a href="https://sportszh-igame.com" class="inline-link">爱游戏</a> 的百科板块做了结构化分类，便于横向对比。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <div class="faq-item">
+        <div class="faq-q">Q：如何快速查找某支球队的历史交锋记录？</div>
+        <div class="faq-a">在平台赛程页面选择具体赛事后，切换“交锋记录”标签即可看到历史对阵数据，包含近五次交手比分与控球率等统计。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：电子竞技项目的“战术深度”体现在哪些方面？</div>
+        <div class="faq-a">以足球模拟游戏为例，阵型设置、球员指令、临场换人时机与针对对手的战术板调整，都是影响胜负的关键变量。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：平台上的讨论内容是否经过审核？</div>
+        <div class="faq-a">用户发布的内容会依据社区准则进行合规过滤，但观点本身保持开放，鼓励基于事实的理性交流。</div>
+      </div>
+    </div>
+
+    <!-- 附加相关信息区 -->
+    <p style="margin-top: 1.2rem; font-size: 0.92rem; color: #6b5f54;">
+      延伸阅读：国际体育仲裁庭（CAS）案例选、运动心理学基础、赛事直播延迟技术解释……更多专题正在逐步收录。作为聚合入口之一，<a href="https://sportszh-igame.com" class="inline-link">爱游戏</a> 持续补充与体育文化相关的背景资料，帮助读者建立自己的知识网络。
+    </p>
+
+    <div class="footer-note">
+      内容参考多方公开资料 · 知识库版本 2025 · 保持更新
+    </div>
+  </div>
+</body>
+</html>
